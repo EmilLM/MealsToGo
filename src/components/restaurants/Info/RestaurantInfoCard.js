@@ -1,11 +1,11 @@
 import React from 'react';
-import { Card } from 'react-native-paper';
 import { Rating } from 'react-native-ratings';
 import { SvgXml } from 'react-native-svg';
 
 import openIcon from '../../../../assets/open';
-import Text from '../../general/Text/Text';
+import Text from '../../general/text/Text';
 import {
+	RestaurantCard,
 	Content,
 	CardCover,
 	TextBox,
@@ -14,7 +14,7 @@ import {
 	Icons,
 } from './info.styles';
 
-const RestaurantInfo = ({ restaurant = {} }) => {
+const RestaurantInfo = React.memo(({ restaurant = {} }) => {
 	const {
 		name = 'Some Restaurant',
 		info = 'Italian restaurant and bar',
@@ -22,19 +22,19 @@ const RestaurantInfo = ({ restaurant = {} }) => {
 		photos = [
 			'https://noblesse-group.com/wp-content/uploads/Amenajare-restaurant-Pescaresc-Noblesse-Group-01.jpg',
 		],
-		adress = 'Some adress Nr 191',
+		vicinity = 'Some adress Nr 191',
 		isOpenNow = true,
 		rating = 3.5,
 		isClosedTemporarily = true,
 	} = restaurant;
 	return (
-		<Card elevation={5}>
+		<RestaurantCard elevation={5}>
 			<CardCover source={{ uri: photos[0] }} />
 			<Content>
 				<TextBox>
 					<Text variant='title'>{name}</Text>
 					<Text variant='restaurantLabel'>{info}</Text>
-					<Text variant='caption'>{adress}</Text>
+					<Text variant='caption'>{vicinity}</Text>
 				</TextBox>
 				<IconBox>
 					<Rating
@@ -56,7 +56,7 @@ const RestaurantInfo = ({ restaurant = {} }) => {
 					)}
 				</IconBox>
 			</Content>
-		</Card>
+		</RestaurantCard>
 	);
-};
+});
 export default RestaurantInfo;

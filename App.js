@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { Text } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/utils/theme/theme';
-import RestaurantScreen from './src/components/restaurants/Screen/RestaurantScreen';
-import { useFonts as useOswald, Oswald_400Regular } from '@expo-google-fonts/oswald';
+import {
+	useFonts as useOswald,
+	Oswald_400Regular,
+} from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
+import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context';
+
+import Navigation from './src/components/general/navigation/Navigation';
+import Loader from './src/components/general/loader/Loader';
 
 export default function App() {
 	const [oswaldLoaded] = useOswald({
@@ -13,11 +18,14 @@ export default function App() {
 	const [latoLoaded] = useLato({
 		Lato_400Regular,
 	});
-	if (!oswaldLoaded || !latoLoaded) return <Text>Loading</Text>;
+
+	if (!oswaldLoaded || !latoLoaded) return <Loader />;
+
 	return (
 		<ThemeProvider theme={theme}>
-			<RestaurantScreen />
+			<RestaurantsContextProvider>
+				<Navigation />
+			</RestaurantsContextProvider>
 		</ThemeProvider>
 	);
 }
-

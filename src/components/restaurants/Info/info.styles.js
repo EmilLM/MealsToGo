@@ -1,6 +1,11 @@
 import styled from 'styled-components/native';
 import { Card } from 'react-native-paper';
 
+export const RestaurantCard = styled(Card)`
+	background-color: ${(props) => props.theme.colors.bg.primary};
+	margin-bottom: ${(props) => props.theme.sizes[3]};
+`;
+
 export const CardCover = styled(Card.Cover)`
 	padding: ${(props) => props.theme.sizes[3]};
 	background-color: ${(props) => props.theme.colors.bg.primary};
@@ -12,6 +17,7 @@ export const Content = styled(Card.Content)`
 	justify-content: space-between;
 `;
 export const TextBox = styled.View`
+	width: 60%;
 	justify-content: flex-start;
 `;
 export const IconBox = styled.View`

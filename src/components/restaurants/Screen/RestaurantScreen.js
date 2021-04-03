@@ -1,39 +1,39 @@
-import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useState, useContext } from 'react';
+import { RestaurantsContext } from '../../../services/restaurants/restaurants.context';
 import { Searchbar } from 'react-native-paper';
-import RestaurantInfo from '../Info/RestaurantInfoCard';
+import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
 
-const SafeArea = styled(SafeAreaView)`
-	flex: 1;
-`;
+import RestaurantInfoCard from '../Info/RestaurantInfoCard';
+import SafeArea from '../../general/safe-area/SafeArea';
+import Loader from '../../general/loader/Loader';
 const SearchView = styled.View`
-	padding: ${(props) => props.theme.sizes[3]};
-`;
-
-const ListView = styled.View`
-	flex: 1;
 	padding: ${(props) => props.theme.sizes[3]};
 `;
 
 export default function App() {
 	const [searchQuery, setSearchQuery] = useState('');
 	const onChangeSearch = (query) => setSearchQuery(query);
+	const { restaurants, isLoading } = useContext(RestaurantsContext);
 
+	if (isLoading) return <Loader />;
 	return (
-		<>
-			<SafeArea>
-				<SearchView>
-					<Searchbar
-						placeholder='Search'
-						onChangeText={onChangeSearch}
-						value={searchQuery}
-					/>
-				</SearchView>
-				<ListView>
-					<RestaurantInfo />
-				</ListView>
-			</SafeArea>
-		</>
+		<SafeArea>
+			<SearchView>
+				<Searchbar
+					placeholder='Search'
+					onChangeText={onChangeSearch}
+					value={searchQuery}
+				/>
+			</SearchView>
+			<FlatList
+				data={restaurants}
+				renderItem={({ item }) => {
+					return <RestaurantInfoCard restaurant={item} />;
+				}}
+				keyExtractor={(item) => item.name}
+				contentContainerStyle={{ padding: 16 }}
+			/>
+		</SafeArea>
 	);
 }
