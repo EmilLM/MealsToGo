@@ -5,6 +5,7 @@ import { screenOptions } from '../../../utils/screenOptions/screenOptions';
 import RestaurantScreen from '../../restaurants/Screen/RestaurantScreen';
 import MapScreen from '../../map/screen/MapScreen';
 import SettingsScreen from '../../settings/screen/SettingsScreen';
+import RestaurantNavigator from '../navigation/Navigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,7 +21,7 @@ export default function App() {
 					tabStyle: { marginBottom: 4, marginTop: 4 },
 				}}
 			>
-				<Tab.Screen name='Restaurants' component={RestaurantScreen} />
+				<Tab.Screen name='Restaurants' component={RestaurantNavigator} />
 				<Tab.Screen name='Map' component={MapScreen} />
 				<Tab.Screen name='Settings' component={SettingsScreen} />
 			</Tab.Navigator>

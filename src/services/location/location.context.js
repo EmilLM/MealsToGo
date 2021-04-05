@@ -14,6 +14,7 @@ export const LocationContextProvider = (props) => {
 		setIsLoading(true);
 		setKeyword(searchKeyword);
 	};
+	
 	useEffect(() => {
 		if (!keyword.length) return;
 
