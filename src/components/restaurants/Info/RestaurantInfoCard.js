@@ -14,27 +14,17 @@ import {
 	Icons,
 } from './info.styles';
 
-const RestaurantInfo = React.memo(({ restaurant = {} }) => {
-	const {
-		name = 'Some Restaurant',
-		info = 'Italian restaurant and bar',
-		icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
-		photos = [
-			'https://noblesse-group.com/wp-content/uploads/Amenajare-restaurant-Pescaresc-Noblesse-Group-01.jpg',
-		],
-		vicinity = 'Some adress Nr 191',
-		isOpenNow = true,
-		rating = 3.5,
-		isClosedTemporarily = true,
-	} = restaurant;
+const RestaurantInfo = React.memo(({ restaurant }) => {
+	const {photos, name, info ,address, rating, isClosedTemporarily, isOpenNow, icon} = restaurant;
+	
 	return (
 		<RestaurantCard elevation={5}>
 			<CardCover source={{ uri: photos[0] }} />
 			<Content>
 				<TextBox>
-					<Text variant='title'>{name}</Text>
+					<Text variant='label'>{name}</Text>
 					<Text variant='restaurantLabel'>{info}</Text>
-					<Text variant='caption'>{vicinity}</Text>
+					<Text variant='caption'>{address}</Text>
 				</TextBox>
 				<IconBox>
 					<Rating
@@ -51,8 +41,10 @@ const RestaurantInfo = React.memo(({ restaurant = {} }) => {
 							source={{ uri: icon }}
 						/>
 					</Icons>
-					{isClosedTemporarily && (
+					{isClosedTemporarily ? (
 						<Text variant='error'>CLOSED TEMPORARILY</Text>
+					) : (
+						<Text variant='transparent'>OPEN</Text>
 					)}
 				</IconBox>
 			</Content>

@@ -43,6 +43,11 @@ const title = (theme) => `
     font-size: ${theme.fontSizes.title};
     font-weight: ${theme.fontWeights.bold};
 `;
+const transparent = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.button};
+    color: transparent;
+`;
 
 const variants = {
 	body,
@@ -51,7 +56,8 @@ const variants = {
 	error,
 	hint,
 	title,
-  restaurantLabel
+	restaurantLabel,
+    transparent,
 };
 
 const Text = styled.Text`

@@ -1,5 +1,5 @@
-import { useLinkProps } from '@react-navigation/native';
-import React, { useState, createContext, useEffect, useMemo } from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
+import { LocationContext } from '../location/location.context';
 import {
 	restaurantsRequest,
 	restaurantsTransform,
@@ -8,14 +8,17 @@ import {
 export const RestaurantsContext = createContext();
 
 export const RestaurantsContextProvider = (props) => {
+	const { location } = useContext(LocationContext);
+
 	const [restaurants, setRestaurants] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
-	const retrieveRestaurants = () => {
+	const retrieveRestaurants = (loc) => {
 		setIsLoading(true);
+		setRestaurants([])
 		setTimeout(() => {
-			restaurantsRequest()
+			restaurantsRequest(loc)
 				.then(restaurantsTransform)
 				.then((res) => {
 					setRestaurants(res);
@@ -27,9 +30,11 @@ export const RestaurantsContextProvider = (props) => {
 				});
 		}, 2000);
 	};
+
 	useEffect(() => {
-		retrieveRestaurants();
-	}, []);
+		const locationString = `${location?.lat},${location?.lng}`;
+		retrieveRestaurants(locationString);
+	}, [location]);
 
 	return (
 		<RestaurantsContext.Provider value={{ restaurants, isLoading, error }}>

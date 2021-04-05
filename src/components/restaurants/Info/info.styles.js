@@ -19,6 +19,7 @@ export const Content = styled(Card.Content)`
 export const TextBox = styled.View`
 	width: 60%;
 	justify-content: flex-start;
+
 `;
 export const IconBox = styled.View`
 	justify-content: space-between;
