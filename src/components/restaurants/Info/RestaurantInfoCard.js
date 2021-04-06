@@ -4,6 +4,7 @@ import { SvgXml } from 'react-native-svg';
 
 import openIcon from '../../../../assets/open';
 import Text from '../../general/text/Text';
+import Favourite from '../../general/favourite/Favourite';
 import {
 	RestaurantCard,
 	Content,
@@ -15,10 +16,20 @@ import {
 } from './info.styles';
 
 const RestaurantInfo = React.memo(({ restaurant }) => {
-	const {photos, name, info ,address, rating, isClosedTemporarily, isOpenNow, icon} = restaurant;
-	
+	const {
+		photos,
+		name,
+		info,
+		address,
+		rating,
+		isClosedTemporarily,
+		isOpenNow,
+		icon,
+	} = restaurant;
+
 	return (
 		<RestaurantCard elevation={5}>
+			<Favourite restaurant={restaurant}/>
 			<CardCover source={{ uri: photos[0] }} />
 			<Content>
 				<TextBox>

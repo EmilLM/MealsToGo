@@ -6,12 +6,18 @@ import RestaurantInfoCard from '../Info/RestaurantInfoCard';
 import SafeArea from '../../general/safe-area/SafeArea';
 import Loader from '../../general/loader/Loader';
 import Search from '../Search/Search';
+import FavouritesBar from '../../general/favourite/FavouritesBar'
 
 export default function RestaurantScreen({ navigation }) {
 	const { restaurants, isLoading } = useContext(RestaurantsContext);
+	const [isToggled, setIsToggled] = useState(false);
 	return (
 		<SafeArea>
-			<Search />
+			<Search
+				onFavouritesToggle={() => setIsToggled(!isToggled)}
+				isFavouritesToggled={isToggled}
+			/>
+			{isToggled && <FavouritesBar navigation={navigation}/>}
 			{!isLoading ? (
 				<FlatList
 					data={restaurants}

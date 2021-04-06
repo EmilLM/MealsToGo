@@ -31,9 +31,15 @@ const label = (theme) => `
     font-size: ${theme.fontSizes.body};
     font-weight: ${theme.fontWeights.medium};
 `;
-const restaurantLabel = (theme) => `
+const favLabel = (theme) => `
     font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.body};
+    font-weight: ${theme.fontWeights.bold};
+    margin-left: 16px;
+`;
+const restaurantLabel = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.label};
     font-weight: ${theme.fontWeights.medium};
     color: ${theme.colors.text.secondary};
     padding: ${`${theme.sizes[2]} ${theme.sizes[0]}`};
@@ -57,7 +63,8 @@ const variants = {
 	hint,
 	title,
 	restaurantLabel,
-    transparent,
+	transparent,
+	favLabel,
 };
 
 const Text = styled.Text`
