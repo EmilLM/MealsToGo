@@ -41,7 +41,7 @@ const FavouritesBar = ({ navigation }) => {
 				</ScrollView>
 			) : (
 				<EmptyFavContainer>
-					<Text variant='body'>Your favourites list is empty!</Text>
+					<Text variant='caption'>Your favourites list is empty!</Text>
 				</EmptyFavContainer>
 			)}
 		</FavouritesWrapper>

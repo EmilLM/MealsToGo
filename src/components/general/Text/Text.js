@@ -9,16 +9,19 @@ const defaultTextStyles = (theme) => `
   margin-bottom: 0px;
 `;
 
-const body = (theme) => `
-    font-size: ${theme.fontSizes.body};
-`;
-
-const hint = (theme) => `
-    font-size: ${theme.fontSizes.body};
+const mainTitle = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.h3};
+    font-weight: ${theme.fontWeights.bold};
+    margin-bottom: 20%;
+    text-shadow: 0 0 10px blue;
+    color: ${theme.colors.text.inverse};
 `;
 
 const error = (theme) => `
     color: ${theme.colors.text.error};
+    font-size: ${theme.fontSizes.title};
+
 `;
 
 const caption = (theme) => `
@@ -55,16 +58,25 @@ const transparent = (theme) => `
     color: transparent;
 `;
 
+const button = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.button};
+    font-weight: ${theme.fontWeights.bold};
+    color: ${theme.colors.text.inverse};
+    padding: ${`6px 12px`};
+    text-transform: uppercase;
+`;
+
 const variants = {
-	body,
 	label,
 	caption,
 	error,
-	hint,
 	title,
 	restaurantLabel,
 	transparent,
 	favLabel,
+	button,
+    mainTitle,
 };
 
 const Text = styled.Text`
