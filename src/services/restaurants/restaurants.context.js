@@ -36,6 +36,10 @@ export const RestaurantsContextProvider = (props) => {
 		retrieveRestaurants(locationString);
 	}, [location]);
 
+	useEffect(()=>{
+		return (()=>clearTimeout())
+	})
+
 	return (
 		<RestaurantsContext.Provider value={{ restaurants, isLoading, error }}>
 			{props.children}

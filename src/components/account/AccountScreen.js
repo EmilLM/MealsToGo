@@ -20,7 +20,7 @@ const AccountScreen = ({ navigation }) => {
 					Login
 				</CustomButton>
 				<CustomButton
-					icon={'account'}
+					icon={'account-outline'}
 					onPress={() => navigation.navigate('Register')}
 				>
 					Register

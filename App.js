@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/utils/theme/theme';
+import * as firebase from 'firebase';
+
 import {
 	useFonts as useOswald,
 	Oswald_400Regular,
 } from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 
-import * as firebase from 'firebase';
 
-import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context';
-import { LocationContextProvider } from './src/services/location/location.context';
-import { FavouritesContextProvider } from './src/services/favourites/favourites.context';
 import { AuthContextProvider } from './src/services/auth/auth.context';
-
 import LandingScreen from './src/components/general/navigation/LandingScreen';
 import Loader from './src/components/general/loader/Loader';
 
@@ -40,13 +37,7 @@ export default function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<AuthContextProvider>
-				<FavouritesContextProvider>
-					<LocationContextProvider>
-						<RestaurantsContextProvider>
-							<LandingScreen />
-						</RestaurantsContextProvider>
-					</LocationContextProvider>
-				</FavouritesContextProvider>
+				<LandingScreen />
 			</AuthContextProvider>
 		</ThemeProvider>
 	);

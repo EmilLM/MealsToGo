@@ -13,14 +13,15 @@ const mainTitle = (theme) => `
     font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.h3};
     font-weight: ${theme.fontWeights.bold};
-    margin-bottom: 20%;
+    margin-bottom: 5%;
     text-shadow: 0 0 10px blue;
     color: ${theme.colors.text.inverse};
 `;
 
 const error = (theme) => `
     color: ${theme.colors.text.error};
-    font-size: ${theme.fontSizes.title};
+    font-size: ${theme.fontSizes.body};
+    text-align: center;
 
 `;
 
@@ -76,7 +77,7 @@ const variants = {
 	transparent,
 	favLabel,
 	button,
-    mainTitle,
+	mainTitle,
 };
 
 const Text = styled.Text`
