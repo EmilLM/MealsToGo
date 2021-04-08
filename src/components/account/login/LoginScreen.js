@@ -8,7 +8,7 @@ import {
 import { IconButton } from 'react-native-paper';
 
 import Text from '../../general/text/Text';
-import LoginForm from './loginForm';
+import LoginForm from './LoginForm';
 
 const LoginScreen = () => {
 	return (

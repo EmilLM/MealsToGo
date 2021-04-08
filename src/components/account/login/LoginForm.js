@@ -13,7 +13,6 @@ const LoginForm = () => {
 	const [password, setPassword] = useState('');
 	const { onLogin, isLoading, error, setError } = useContext(AuthContext);
 
-    console.log(isLoading)
 	useEffect(() => {
 		// to prevent error message being show after form reset
 		setError('');

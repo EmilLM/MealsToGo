@@ -50,3 +50,11 @@ export const ErrorContainer = styled.View`
 `;
 
 export const TitleContainer = styled.View``
+
+export const AnimationWrapper = styled.View`
+	width: 100%;
+	height: 30%;
+	position: absolute;
+	top: 30px;
+	padding: ${props=>props.theme.sizes[2]}
+`

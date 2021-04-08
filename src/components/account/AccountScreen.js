@@ -5,13 +5,27 @@ import {
 	AccountBg,
 	AccountCover,
 	CustomButton,
+	AnimationWrapper
 } from './account.styles';
+import LottieView from 'lottie-react-native';
 
 const AccountScreen = ({ navigation }) => {
 	return (
 		<AccountBg>
 			<AccountCover />
-			<Text variant="mainTitle">MealsToGo</Text>
+			<AnimationWrapper>
+			<LottieView
+				key="animation"
+				autoPlay
+				loop
+				resizeMode="cover"
+				
+				source={require('../../../assets/watermelon.json')}
+				// OR find more Lottie files @ https://lottiefiles.com/featured
+				// Just click the one you like, place that file in the 'assets' folder to the left, and replace the above 'require' statement
+			/>
+			</AnimationWrapper>
+			<Text variant='mainTitle'>MealsToGo</Text>
 			<Container>
 				<CustomButton
 					icon={'login'}
@@ -25,7 +39,6 @@ const AccountScreen = ({ navigation }) => {
 				>
 					Register
 				</CustomButton>
-				
 			</Container>
 		</AccountBg>
 	);

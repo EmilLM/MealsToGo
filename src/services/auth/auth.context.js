@@ -12,18 +12,16 @@ export const AuthContextProvider = (props) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
-	console.log('provider', isLoading);
 
 	// user auth state persist
-	firebase.auth().onAuthStateChanged((usr) => {
-		if (usr) {
-			
-			setUser(usr);
-			setIsLoading(false);
-		} else {
-			setIsLoading(false);
-		}
-	});
+	// firebase.auth().onAuthStateChanged((usr) => {
+	// 	if (usr) {
+	// 		setUser(usr);
+	// 		setIsLoading(false);
+	// 	} else {
+	// 		setIsLoading(false);
+	// 	}
+	// });
 
 	const onLogin = async (email, password) => {
 		try {
