@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-paper';
 
 export const AccountBg = styled.ImageBackground.attrs({

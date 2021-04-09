@@ -6,7 +6,7 @@ export const FavouritesContext = createContext();
 
 export const FavouritesContextProvider = (props) => {
 	const [favourites, setFavourites] = useState([]);
-	const {user} = useContext(AuthContext)
+	const {user} = useContext(AuthContext);
 
 	const addFavourite = (restaurant) => {
 		setFavourites([...favourites, restaurant]);

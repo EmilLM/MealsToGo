@@ -6,19 +6,20 @@ import RestaurantInfoCard from '../Info/RestaurantInfoCard';
 import SafeArea from '../../general/safe-area/SafeArea';
 import Loader from '../../general/loader/Loader';
 import Search from '../Search/Search';
-import FavouritesBar from '../../general/favourite/FavouritesBar'
+import FavouritesBar from '../../general/favourite/FavouritesBar';
+import FadeIn from '../../animations/fade.animation';
 
 export default function RestaurantScreen({ navigation }) {
 	const { restaurants, isLoading } = useContext(RestaurantsContext);
 	const [isToggled, setIsToggled] = useState(false);
 	return (
 		<SafeArea>
-			<Search
-				onFavouritesToggle={() => setIsToggled(!isToggled)}
-				isFavouritesToggled={isToggled}
-			/>
-			{isToggled && <FavouritesBar navigation={navigation}/>}
-			{!isLoading ? (
+				<Search
+					onFavouritesToggle={() => setIsToggled(!isToggled)}
+					isFavouritesToggled={isToggled}
+				/>
+			{isToggled && <FavouritesBar navigation={navigation} />}
+			{restaurants.length ? (
 				<FlatList
 					data={restaurants}
 					renderItem={({ item }) => {
@@ -30,7 +31,9 @@ export default function RestaurantScreen({ navigation }) {
 									})
 								}
 							>
-								<RestaurantInfoCard restaurant={item} />
+								<FadeIn>
+									<RestaurantInfoCard restaurant={item} />
+								</FadeIn>
 							</TouchableOpacity>
 						);
 					}}

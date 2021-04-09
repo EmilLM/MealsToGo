@@ -1,22 +1,15 @@
 import React, { useContext } from 'react';
 import { FavouritesContext } from '../../../services/favourites/favourites.context';
-import styled from 'styled-components/native';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import CompactRestInfo from '../../map/callout/CompactRestInfo';
 import Text from '../text/Text';
+import {FavouritesWrapper, EmptyFavContainer} from './favourites.styles'
 
-const FavouritesWrapper = styled.View``;
-const EmptyFavContainer = styled.View`
-	padding: 10px;
-	height: 120px;
-	width: 100%;
-	align-items: center;
-	justify-content: center;
-`;
 
 const FavouritesBar = ({ navigation }) => {
 	const { favourites } = useContext(FavouritesContext);
 	const hasFavourites = favourites.length > 0;
+
 	return (
 		<FavouritesWrapper>
 			<Text variant='favLabel'>Favourites</Text>

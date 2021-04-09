@@ -48,7 +48,7 @@ const RestaurantInfo = React.memo(({ restaurant }) => {
 					<Icons>
 						{isOpenNow && <SvgXml xml={openIcon} width={20} height={20} />}
 						<Icon
-							style={{ width: 20, height: 20, marginLeft: 20 }}
+							style={{ width: 18, height: 18, marginLeft: 20 }}
 							source={{ uri: icon }}
 						/>
 					</Icons>

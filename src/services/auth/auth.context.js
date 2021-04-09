@@ -14,14 +14,14 @@ export const AuthContextProvider = (props) => {
 
 
 	// user auth state persist
-	// firebase.auth().onAuthStateChanged((usr) => {
-	// 	if (usr) {
-	// 		setUser(usr);
-	// 		setIsLoading(false);
-	// 	} else {
-	// 		setIsLoading(false);
-	// 	}
-	// });
+	firebase.auth().onAuthStateChanged((usr) => {
+		if (usr) {
+			setUser(usr);
+			setIsLoading(false);
+		} else {
+			setIsLoading(false);
+		}
+	});
 
 	const onLogin = async (email, password) => {
 		try {
