@@ -16,29 +16,23 @@ export const RestaurantsContextProvider = (props) => {
 
 	const retrieveRestaurants = (loc) => {
 		setIsLoading(true);
-		setRestaurants([])
-		setTimeout(() => {
-			restaurantsRequest(loc)
-				.then(restaurantsTransform)
-				.then((res) => {
-					setRestaurants(res);
-					setIsLoading(false);
-				})
-				.catch((err) => {
-					setError(err);
-					setIsLoading(false);
-				});
-		}, 2000);
+		setRestaurants([]);
+		restaurantsRequest(loc)
+			.then(restaurantsTransform)
+			.then((res) => {
+				setRestaurants(res);
+				setIsLoading(false);
+			})
+			.catch((err) => {
+				setError(err);
+				setIsLoading(false);
+			});
 	};
 
 	useEffect(() => {
 		const locationString = `${location?.lat},${location?.lng}`;
 		retrieveRestaurants(locationString);
 	}, [location]);
-
-	useEffect(()=>{
-		return (()=>clearTimeout())
-	})
 
 	return (
 		<RestaurantsContext.Provider value={{ restaurants, isLoading, error }}>

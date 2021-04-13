@@ -33,6 +33,7 @@ export const FavouritesContextProvider = (props) => {
 			const value = await AsyncStorage.getItem(`@favourites-${uid}`);
 			if (value !== null) {
 				setFavourites(JSON.parse(value));
+				// setFavourites([]);
 			}
 		} catch (e) {
 			console.log('loading Favs', e);
