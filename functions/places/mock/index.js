@@ -24,5 +24,5 @@ module.exports.addMockImage = (restaurant) => {
 	const randomImage =
 		mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
 	restaurant.photos = [randomImage];
-  return restaurant;
+	return restaurant;
 };

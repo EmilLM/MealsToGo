@@ -34,17 +34,17 @@ const RestaurantInfo = React.memo(({ restaurant }) => {
 			<Content>
 				<TextBox>
 					<Text variant='label'>{name}</Text>
-					<Text variant='restaurantLabel'>{info}</Text>
+					{/* <Text variant='restaurantLabel'>{info}</Text> */}
 					<Text variant='caption'>{address}</Text>
 				</TextBox>
 				<IconBox>
-					<Rating
+					{/* <Rating
 						type='star'
 						ratingCount={5}
 						startingValue={rating}
 						imageSize={20}
 						fractions={2}
-					/>
+					/> */}
 					<Icons>
 						{isOpenNow && <SvgXml xml={openIcon} width={20} height={20} />}
 						<Icon
@@ -55,7 +55,8 @@ const RestaurantInfo = React.memo(({ restaurant }) => {
 					{isClosedTemporarily ? (
 						<Text variant='error'>CLOSED TEMPORARILY</Text>
 					) : (
-						<Text variant='transparent'>OPEN</Text>
+						// <Text variant='transparent'>OPEN</Text>
+						null
 					)}
 				</IconBox>
 			</Content>

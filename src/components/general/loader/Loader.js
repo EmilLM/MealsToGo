@@ -1,17 +1,22 @@
 import React from 'react';
 import { ActivityIndicator, Colors } from 'react-native-paper';
-import SafeArea from '../safe-area/SafeArea';
+import styled from 'styled-components/native'
+
 const Loader = () => {
 	return (
-		<SafeArea>
-			<ActivityIndicator
-				animating={true}
-				color={'navy'}
-				size={'large'}
-				style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-			/>
-		</SafeArea>
+		<LoadingContainer>
+			<Loading animating={true} color={Colors.blue300} size={'large'} />
+		</LoadingContainer>
 	);
 };
 
 export default Loader;
+
+const Loading = styled(ActivityIndicator)`
+	margin-left: -25px;
+`;
+const LoadingContainer = styled.View`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+`;

@@ -20,18 +20,23 @@ export const RestaurantsContextProvider = (props) => {
 		restaurantsRequest(loc)
 			.then(restaurantsTransform)
 			.then((res) => {
+				setError(null);
 				setRestaurants(res);
 				setIsLoading(false);
 			})
 			.catch((err) => {
+				console.log('rest err', err);
+				setRestaurants([]);
 				setError(err);
 				setIsLoading(false);
 			});
 	};
 
 	useEffect(() => {
-		const locationString = `${location?.lat},${location?.lng}`;
-		retrieveRestaurants(locationString);
+		if (location) {
+			const locationString = `${location.lat},${location.lng}`;
+			retrieveRestaurants(locationString);
+		  }
 	}, [location]);
 
 	return (

@@ -1,13 +1,12 @@
-import {host} from '../../utils/env';
+import {host, isMock} from '../../utils/env';
 
 import camelize from 'camelize';
 
 export const restaurantsRequest = (location) => {
 
 	return fetch(
-		`${host}/placesNearby?location=${location}`
+		`${host}/placesNearby?location=${location}&mock=${isMock}`
 	  ).then((res) => {
-		//   console.log('restReq', res)
 		return res.json();
 	  })
 };
