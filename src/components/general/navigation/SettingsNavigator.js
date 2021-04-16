@@ -7,8 +7,7 @@ import {
 import SettingsScreen from '../../settings/screen/SettingsScreen';
 import FavouritesScreen from '../favourite/FavouritesScreen';
 import CameraScreen from '../../settings/camera/CameraScreen';
-import ChangePasswordScreen from '../../account/changePassword/ChangePasswordScreen'
-
+import ChangePasswordScreen from '../../account/changePassword/ChangePasswordScreen';
 const SettingsStack = createStackNavigator();
 
 const SettingsNavigator = ({ route, navigation }) => {
@@ -30,10 +29,11 @@ const SettingsNavigator = ({ route, navigation }) => {
 				component={CameraScreen}
 			/>
 			<SettingsStack.Screen
-				name='ChangePassword'
+				name='Change'
 				options={{ header: () => null }}
 				component={ChangePasswordScreen}
 			/>
+			
 			
 			<SettingsStack.Screen name='Favourites' component={FavouritesScreen} />
 

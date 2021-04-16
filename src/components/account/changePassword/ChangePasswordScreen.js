@@ -15,7 +15,13 @@ import Text from '../../general/text/Text';
 const ChangePasswordScreen = () => {
 	const [password, setPassword] = useState('');
 	const [repeatPassword, setRepeatPassword] = useState('');
-	const { onChangePassword, isLoading, error, setError } = useContext(AuthContext);
+	const {
+		onChangePassword,
+		changePass,
+		isLoading,
+		error,
+		setError,
+	} = useContext(AuthContext);
 
 	useEffect(() => {
 		// to prevent error message being show after form reset
@@ -25,7 +31,6 @@ const ChangePasswordScreen = () => {
 	useEffect(() => {
 		if (!password && !repeatPassword) setError('');
 	}, [password]);
-
 	return (
 		<AccountBg>
 			<AccountCover />
@@ -49,12 +54,12 @@ const ChangePasswordScreen = () => {
 					// keyboardType='email-address'
 					style={{
 						width: '100%',
-                        marginTop: 8,
+						marginTop: 8,
 						marginBottom: 8,
 						backgroundColor: 'white',
 					}}
 				/>
-                <TextInput
+				<TextInput
 					mode='outlined'
 					label='Repeat password'
 					value={repeatPassword}
@@ -72,13 +77,15 @@ const ChangePasswordScreen = () => {
 				/>
 				{error ? (
 					<ErrorContainer>
-						{/* add different messages based on error received or just add the error */}
 						<Text variant='error'>{error}</Text>
 					</ErrorContainer>
-				) : null}
+				) : (
+					changePass && <Text variant='label'>Password changed!</Text>
+				)}
+				{/* change error to pasword changed if modified */}
 				<CustomButton
 					icon={'arrow-collapse-down'}
-					onPress={onChangePassword(password, repeatPassword)}
+					onPress={() => onChangePassword(password, repeatPassword)}
 					loading={isLoading}
 					disabled={!password || !repeatPassword}
 				>

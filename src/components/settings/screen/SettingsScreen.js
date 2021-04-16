@@ -56,7 +56,7 @@ const SettingScreen = ({ navigation }) => {
 						title='Change password'
 						titleStyle={{ fontSize: 20 }}
 						left={() => <List.Icon color='#2182BD' icon='lock-reset' />}
-						onPress={()=>navigation.navigate('ChangePassword')}
+						onPress={() => navigation.navigate('Change')}						
 					/>
 					<SettingsItem
 						title='Delete account'
