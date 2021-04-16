@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/utils/theme/theme';
 import * as firebase from 'firebase';
+import { GOOGLE_KEY } from './config.env.js';
 
 import {
 	useFonts as useOswald,
 	Oswald_400Regular,
 } from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
-
 
 import { AuthContextProvider } from './src/services/auth/auth.context';
 import LandingScreen from './src/components/general/navigation/LandingScreen';

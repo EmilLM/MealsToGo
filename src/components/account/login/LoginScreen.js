@@ -1,16 +1,18 @@
 import React from 'react';
-import {
-	Container,
-	AccountBg,
-	AccountCover,
-	NameContainer,
-} from '../account.styles';
 import { IconButton } from 'react-native-paper';
 
 import Text from '../../general/text/Text';
 import LoginForm from './LoginForm';
 
-const LoginScreen = () => {
+import {
+	Container,
+	AccountBg,
+	AccountCover,
+	NameContainer,
+	TextButton,
+} from '../account.styles';
+
+const LoginScreen = ({ navigation }) => {
 	return (
 		<AccountBg>
 			<AccountCover />
@@ -23,6 +25,9 @@ const LoginScreen = () => {
 				</NameContainer>
 
 				<LoginForm />
+				<TextButton onPress={() => null}>
+					<Text variant='label'>Forgot password?</Text>
+				</TextButton>
 			</Container>
 		</AccountBg>
 	);

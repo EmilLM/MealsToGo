@@ -27,7 +27,7 @@ const FavouritesScreen = ({navigation}) => {
 							</TouchableOpacity>
 						);
 					}}
-					keyExtractor={(item) => item.name}
+					keyExtractor={(item) => item.placeId}
 					contentContainerStyle={{ padding: 16 }}
 				/>
 		);

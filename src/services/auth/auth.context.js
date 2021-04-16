@@ -12,7 +12,6 @@ export const AuthContextProvider = (props) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
-
 	// user auth state persist
 	firebase.auth().onAuthStateChanged((usr) => {
 		if (usr) {
@@ -60,6 +59,33 @@ export const AuthContextProvider = (props) => {
 		firebase.auth().signOut();
 	};
 
+	const onDeleteUser = () => {
+		const user = firebase.auth().currentUser;
+		user
+			.delete()
+			.then(() => {
+				setUser(null);
+			})
+			.catch((error) => {
+				setError(error);
+			});
+	};
+
+	const onChangePassword = async (oldPass, newPass) => {
+		try {
+			const user = firebase.auth().currentUser;
+			setIsLoading(true);
+			if (oldPass === newPass) {
+				await user.updatePassword(newPass)
+			} else setError('Passwords do not match!')
+		} catch (e) {
+			setError(error);
+			setIsLoading(false);
+		}
+
+		
+	};
+
 	return (
 		<AuthContext.Provider
 			value={{
@@ -70,6 +96,8 @@ export const AuthContextProvider = (props) => {
 				onLogin,
 				onRegister,
 				onLogout,
+				onDeleteUser,
+				onChangePassword
 			}}
 		>
 			{props.children}

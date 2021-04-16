@@ -4,7 +4,7 @@ import { locationRequest, locationTransform } from './location.service';
 export const LocationContext = createContext();
 
 export const LocationContextProvider = (props) => {
-	const [keyword, setKeyword] = useState('Paris');
+	const [keyword, setKeyword] = useState('Slobozia');
 	const [location, setLocation] = useState(null);
 
 	const [isLoading, setIsLoading] = useState(false);

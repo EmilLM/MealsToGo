@@ -48,12 +48,14 @@ export const ErrorContainer = styled.View`
 	margin: ${props=>props.theme.sizes[2]}
 `;
 
-export const TitleContainer = styled.View``
-
 export const AnimationWrapper = styled.View`
 	width: 100%;
 	height: 30%;
 	position: absolute;
 	top: 30px;
 	padding: ${props=>props.theme.sizes[2]}
+`
+
+export const TextButton = styled.TouchableOpacity`
+	marginTop: 10px;
 `

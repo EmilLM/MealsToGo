@@ -1,12 +1,12 @@
 import React from 'react';
-import { ActivityIndicator, Colors } from 'react-native-paper';
-import styled from 'styled-components/native'
+import { ActivityIndicator} from "react-native-paper";
+import styled from 'styled-components/native';
 
 const Loader = () => {
 	return (
-		<LoadingContainer>
-			<Loading animating={true} color={Colors.blue300} size={'large'} />
-		</LoadingContainer>
+			<LoadingContainer>
+				<Loading animating={true} color={'blue'} size="large" />
+			</LoadingContainer>
 	);
 };
 

@@ -10,7 +10,7 @@ import SafeArea from '../../general/safe-area/SafeArea';
 import Text from '../../general/text/Text';
 
 const SettingScreen = ({ navigation }) => {
-	const { onLogout, user } = useContext(AuthContext);
+	const { onLogout, user, onDeleteUser } = useContext(AuthContext);
 	const [photo, setPhoto] = useState(null);
 
 	getProfilePicture = async (currUser) => {
@@ -22,7 +22,7 @@ const SettingScreen = ({ navigation }) => {
 			getProfilePicture(user);
 		}, [user])
 	);
-
+	
 	return (
 		<BgImage>
 			<Overlay />
@@ -53,16 +53,16 @@ const SettingScreen = ({ navigation }) => {
 						onPress={onLogout}
 					/>
 					<SettingsItem
-						title='Reset password'
+						title='Change password'
 						titleStyle={{ fontSize: 20 }}
 						left={() => <List.Icon color='#2182BD' icon='lock-reset' />}
-						onPress={onLogout}
+						onPress={()=>navigation.navigate('ChangePassword')}
 					/>
 					<SettingsItem
 						title='Delete account'
 						titleStyle={{ fontSize: 20 }}
 						left={() => <List.Icon color='#2182BD' icon='delete' />}
-						onPress={onLogout}
+						onPress={onDeleteUser}
 					/>
 					<SettingsItem
 						title='New account'
