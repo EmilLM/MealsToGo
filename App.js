@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/utils/theme/theme';
 import * as firebase from 'firebase';
-import { GOOGLE_KEY } from './config.env.js';
+import { FIREBASE} from './config.env.js';
 
 import {
 	useFonts as useOswald,
@@ -15,7 +15,7 @@ import LandingScreen from './src/components/general/navigation/LandingScreen';
 import Loader from './src/components/general/loader/Loader';
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyDbh10YU0IytTODy_nJJ15_JPnSoRzoH-U',
+	apiKey: FIREBASE,
 	authDomain: 'mealsapp-585b8.firebaseapp.com',
 	projectId: 'mealsapp-585b8',
 	storageBucket: 'mealsapp-585b8.appspot.com',
