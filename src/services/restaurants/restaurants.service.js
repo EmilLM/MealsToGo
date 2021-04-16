@@ -1,4 +1,4 @@
-import {host, isMock} from '../../utils/env';
+import {host, isMock} from '../../../config.env';
 
 import camelize from 'camelize';
 
