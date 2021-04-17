@@ -1,24 +1,25 @@
 import React, { useState, useContext, useEffect } from 'react';
 import {
+
 	CustomButton,
 	ErrorContainer,
 } from '../account.styles';
-import { TextInput } from 'react-native-paper';
-import Text from '../../general/text/Text';
+import { TextInput} from 'react-native-paper';
 
 import { AuthContext } from '../../../services/auth/auth.context';
+import Text from '../../general/text/Text';
 
-const LoginForm = () => {
+const RegisterForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const { onLogin, isLoading, error, setError } = useContext(AuthContext);
+	const [repeatPassword, setRepeatPassword] = useState('');
+	const { onRegister, isLoading, error, setError } = useContext(AuthContext);
 
 	useEffect(() => {
-		// to prevent error message being show after input change
+		// to prevent error message being show after form reset
 		setError('');
-	}, [email, password]);
+	}, [email, password, passwordRepeat]);
 
-	console.log('loading', isLoading)
 	return (
 		<>
 			<TextInput
@@ -43,8 +44,24 @@ const LoginForm = () => {
 				// keyboardType='email-address'
 				style={{
 					width: '100%',
+					marginTop: 8,
 					marginBottom: 8,
-					marginTop: 16,
+					backgroundColor: 'white',
+				}}
+			/>
+			<TextInput
+				mode='outlined'
+				label='Repeat password'
+				value={repeatPassword}
+				onChangeText={(input) => setRepeatPassword(input)}
+				secureTextEntry
+				autoCapitalize='none'
+				textContentType='password'
+				// add numbers on top =>background image resizes
+				// keyboardType='email-address'
+				style={{
+					width: '100%',
+					marginBottom: 8,
 					backgroundColor: 'white',
 				}}
 			/>
@@ -54,12 +71,11 @@ const LoginForm = () => {
 					<Text variant='error'>{error}</Text>
 				</ErrorContainer>
 			) : null}
-			{/* ADD PASSWORD RESET */}
 			<CustomButton
 				icon={'arrow-collapse-down'}
-				onPress={() => onLogin(email, password)}
+				onPress={() => onRegister(email, password, repeatPassword)}
 				loading={isLoading}
-				disabled={!email || !password}
+				disabled={!email || !password || !repeatPassword}
 			>
 				Submit
 			</CustomButton>
@@ -67,4 +83,4 @@ const LoginForm = () => {
 	);
 };
 
-export default LoginForm;
+export default RegisterForm;

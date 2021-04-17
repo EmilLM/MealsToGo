@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { Button } from 'react-native-paper';
 
 export const AccountBg = styled.ImageBackground.attrs({
-	source: require('../../../assets/home_bg.jpg'),
+	source: require('../../../assets/home_bg.webp'),
 })`
 	flex: 1;
 	align-items: center;

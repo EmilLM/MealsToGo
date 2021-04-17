@@ -89,7 +89,7 @@ const AvatarContainer = styled.View`
 	align-items: center;
 `;
 export const BgImage = styled.ImageBackground.attrs({
-	source: require('../../../../assets/home_bg.jpg'),
+	source: require('../../../../assets/home_bg.webp'),
 })`
 	flex: 1;
 	justify-content: center;

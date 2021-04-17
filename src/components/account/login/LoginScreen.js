@@ -1,35 +1,24 @@
 import React from 'react';
 import { IconButton } from 'react-native-paper';
 
-import Text from '../../general/text/Text';
 import LoginForm from './LoginForm';
+import BgImageLayout from '../../general/layout/BgImageLayout';
 
-import {
-	Container,
-	AccountBg,
-	AccountCover,
-	NameContainer,
-	TextButton,
-} from '../account.styles';
+import { NameContainer, TextButton } from '../account.styles';
 
 const LoginScreen = ({ navigation }) => {
 	return (
-		<AccountBg>
-			<AccountCover />
-			<Text variant='mainTitle'>MealsToGo</Text>
+		<BgImageLayout>
+			<NameContainer>
+				<IconButton icon='lock-outline' size={25} color={'#2182BD'} />
+				<Text variant='title'>Login</Text>
+			</NameContainer>
 
-			<Container>
-				<NameContainer>
-					<IconButton icon='lock-outline' size={25} color={'#2182BD'} />
-					<Text variant='title'>Login</Text>
-				</NameContainer>
-
-				<LoginForm />
-				<TextButton onPress={() => null}>
-					<Text variant='label'>Forgot password?</Text>
-				</TextButton>
-			</Container>
-		</AccountBg>
+			<LoginForm />
+			<TextButton onPress={() => null}>
+				<Text variant='label'>Forgot password?</Text>
+			</TextButton>
+		</BgImageLayout>
 	);
 };
 

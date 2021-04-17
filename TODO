@@ -3,5 +3,3 @@
 3. Add range selector for radius
 4. Add type of restaurant in description
 5. Fix rating re-rendering problem
-6. Compress bg image and add some restaurant card img formating
-7. Separate inputs from screens: register and change pass
